@@ -1,2 +1,1 @@
-# jotai-ecosystem-ci
-Jotai Ecosystem CI
+# Jotai Ecosystem CI

@@ -1,0 +1,30 @@
+{
+  "name": "jotai-ecosystem-ci",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Jotai Ecosystem CI",
+  "scripts": {
+    "test": "pnpm run '/^test:.*/'",
+    "test:format": "prettier -c .",
+    "test:types": "tsc",
+    "test:run": "node --experimental-strip-types ./src/run-tests.ts"
+  },
+  "author": "Daishi Kato",
+  "license": "MIT",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": "^22.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "dependencies": {
+    "jotai": "^2.10.1"
+  }
+}
