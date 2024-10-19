@@ -8,7 +8,7 @@
     "test": "pnpm run '/^test:.*/'",
     "test:format": "prettier -c .",
     "test:types": "tsc",
-    "test:run": "node --experimental-strip-types ./src/run-tests.ts"
+    "test-ecosystem": "node --experimental-strip-types ./src/run-tests.ts"
   },
   "author": "Daishi Kato",
   "license": "MIT",
