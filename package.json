@@ -23,8 +23,5 @@
   },
   "prettier": {
     "singleQuote": true
-  },
-  "dependencies": {
-    "jotai": "^2.10.1"
   }
 }
