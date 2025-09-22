@@ -6,6 +6,7 @@ import type { TestCmds } from './define-test.ts';
 const jotaiPkg = process.env.JOTAI_PKG || 'jotai@latest';
 const filterRegex = process.env.FILTER_REGEXP || '';
 const timeout = parseInt(process.env.EXEC_TIMEOUT || '') || 10 * 60 * 1000; // 10 minutes
+const verbose = !!process.env.VERBOSE;
 
 const execAsync = (
   cmd: Parameters<typeof exec>[0],
@@ -37,8 +38,14 @@ for (const file of readdirSync('./src/tests')) {
       console.log(`[${name}] Running: ${cmd}`);
       try {
         const output = await execAsync(cmd, { cwd, timeout });
+        if (verbose) {
+          console.log(output);
+        }
         appendFileSync(`./build/${name}.log`, output);
       } catch (e) {
+        if (verbose) {
+          console.error(e);
+        }
         appendFileSync(`./build/${name}.log`, `${e}`);
         throw e;
       }
