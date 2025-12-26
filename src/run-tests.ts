@@ -61,6 +61,7 @@ for (const file of readdirSync('./src/tests')) {
       results[name] = 'FAIL';
     }
     console.log(`[${name}] Done`);
+    rmSync(cwd, { recursive: true });
   }
 }
 
