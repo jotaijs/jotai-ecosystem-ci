@@ -12,7 +12,7 @@
   },
   "author": "Daishi Kato",
   "license": "MIT",
-  "packageManager": "pnpm@8.15.0",
+  "packageManager": "pnpm@10.18.3",
   "engines": {
     "node": "^22.7.0"
   },
