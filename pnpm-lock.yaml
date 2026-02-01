@@ -1,40 +1,49 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-devDependencies:
-  '@types/node':
-    specifier: ^22.7.7
-    version: 22.7.7
-  prettier:
-    specifier: ^3.3.3
-    version: 3.3.3
-  typescript:
-    specifier: ^5.6.3
-    version: 5.6.3
+importers:
+
+  .:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.7.7
+        version: 22.19.7
+      prettier:
+        specifier: ^3.3.3
+        version: 3.8.1
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
 
 packages:
 
-  /@types/node@22.7.7:
-    resolution: {integrity: sha512-SRxCrrg9CL/y54aiMCG3edPKdprgMVGDXjA3gB8UmmBW5TcXzRUYAh8EWzTnSJFAd1rgImPELza+A3bJ+qxz8Q==}
-    dependencies:
-      undici-types: 6.19.8
-    dev: true
+  '@types/node@22.19.7':
+    resolution: {integrity: sha512-MciR4AKGHWl7xwxkBa6xUGxQJ4VBOmPTF7sL+iGzuahOFaO0jHCsuEfS80pan1ef4gWId1oWOweIhrDEYLuaOw==}
 
-  /prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
 
-  /typescript@5.6.3:
-    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
-  /undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-    dev: true
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
+snapshots:
+
+  '@types/node@22.19.7':
+    dependencies:
+      undici-types: 6.21.0
+
+  prettier@3.8.1: {}
+
+  typescript@5.9.3: {}
+
+  undici-types@6.21.0: {}
