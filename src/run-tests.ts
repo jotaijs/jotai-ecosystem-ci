@@ -1,5 +1,5 @@
 import { appendFileSync, mkdirSync, rmSync, readdirSync } from 'node:fs';
-import { exec } from 'node:child_process';
+import { exec, execFile } from 'node:child_process';
 
 import type { TestCmds } from './define-test.ts';
 
@@ -22,6 +22,21 @@ const execAsync = (
     });
   });
 
+const execFileAsync = (
+  file: string,
+  args: readonly string[],
+  options: Omit<Parameters<typeof execFile>[2], 'encoding'>,
+) =>
+  new Promise<string>((resolve, reject) => {
+    execFile(file, args, options, (err, stdout, stderr) => {
+      if (err) {
+        reject(stderr + stdout + err);
+      } else {
+        resolve(stderr + stdout);
+      }
+    });
+  });
+
 rmSync('./build', { recursive: true, force: true });
 
 const results: Record<string, string> = {};
@@ -34,10 +49,14 @@ for (const file of readdirSync('./src/tests')) {
     }
     const cmds: TestCmds = (await import(`./tests/${file}`)).default;
     const cwd = `./build/${name}`;
-    const runCmd = async (cmd: string) => {
-      console.log(`[${name}] Running: ${cmd}`);
+    const runCmd = async (cmd: string | readonly [string, ...string[]]) => {
+      const display = typeof cmd === 'string' ? cmd : cmd.join(' ');
+      console.log(`[${name}] Running: ${display}`);
       try {
-        const output = await execAsync(cmd, { cwd, timeout });
+        const output =
+          typeof cmd === 'string'
+            ? await execAsync(cmd, { cwd, timeout })
+            : await execFileAsync(cmd[0], cmd.slice(1), { cwd, timeout });
         if (verbose) {
           console.log(output);
         }

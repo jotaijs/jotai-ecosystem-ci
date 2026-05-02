@@ -1,7 +1,7 @@
 export type TestCmds = {
   cloneCmd: string;
   installCmd: string;
-  overrideCmd: (pkg: string) => string;
+  overrideCmd: (pkg: string) => [string, ...string[]];
   testCmd: string;
 };
 
