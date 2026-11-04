@@ -14,5 +14,6 @@ export default defineTest({
     'add',
     pkg,
   ],
-  testCmd: 'pnpm test',
+  // skip test:style: oxlint sees this repo's .gitignore (build/) and lints 0 files
+  testCmd: 'pnpm test:types && pnpm test:spec',
 });
